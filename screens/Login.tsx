@@ -18,15 +18,11 @@ const Login = () => {
                 email: email,
                 password: password,
             });
-            // Handle successful registration
-            console.log('Registration successful:', response.data);
             if (response.data.success === true) {
                 await AsyncStorage.setItem('userToken', response.data.token);
-
                 navigation.navigate('Home');
             }
         } catch (error) {
-            // Handle registration error
             console.error('Registration error:', error);
         }
     };
